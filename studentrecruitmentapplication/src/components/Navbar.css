@@ -3,7 +3,7 @@ Maroon: #6e2639
 Silver: #a7a9ac*/
 
 .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    background: linear-gradient(rgba(110, 38, 57),rgba(110, 38, 57));
     height: 80px;
     display: flex;
     justify-content: center;
@@ -27,15 +27,21 @@ Silver: #a7a9ac*/
 }
   
   .navbar-logo {
-    color: #fff;
     justify-self: start;
     margin-left: 20px;
+    width: 150px;
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
     display: flex;
     align-items: center;
+   background-image: url(./nav-logo.png);
+    color: rgb(0, 0, 0, 0);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
+
   
   .fa-typo3 {
     margin-left: 0.5rem;
@@ -84,6 +90,11 @@ Silver: #a7a9ac*/
   }
   
   @media screen and (max-width: 960px) {
+
+    .navbar-logo {
+      display: none;
+    }
+
     .NavbarItems {
       position: relative;
     }
@@ -162,9 +173,5 @@ Silver: #a7a9ac*/
       background: #fff;
       color: #242424;
       transition: 250ms;
-    }
-
-    .log-in {
-      padding-left: 10px;
     }
   }

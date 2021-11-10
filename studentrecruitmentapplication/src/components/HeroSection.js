@@ -6,7 +6,7 @@ import './HeroSection.css';
 function HeroSection() {
   return (
     <div className='hero-container'>
-      <video src='/videos/video-1.mp4' autoPlay loop muted />
+      <image src={'./splashphoto.jpg'} alt='UA LITTLE ROCK'/>
       <h1>UA LITTLE ROCK</h1>
       <p>Student Recruitment Application</p>
       <div className='hero-btns'>
@@ -16,7 +16,7 @@ function HeroSection() {
           buttonSize='btn--large'
           linkTo='/createAccount'
         >
-          GET STARTED
+          Help recruit students!
         </Button>
       </div>
     </div>
