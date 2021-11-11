@@ -35,7 +35,7 @@ Silver: #a7a9ac*/
     font-size: 2rem;
     display: flex;
     align-items: center;
-   background-image: url(./nav-logo.png);
+    background-image: url(./nav-logo.png);
     color: rgb(0, 0, 0, 0);
     background-position: center;
     background-repeat: no-repeat;
