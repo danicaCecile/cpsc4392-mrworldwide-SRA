@@ -33,7 +33,7 @@ Silver: #a7a9ac*/
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
-  display: flex;
+  float:left;
   align-items: center;
   background-image: url(./nav-logo.png);
   color: rgb(0, 0, 0, 0);
@@ -89,11 +89,7 @@ Silver: #a7a9ac*/
   display: none;
 }
 
-@media screen and (max-width: 960px) {
-
-  .navbar-logo {
-    width: 13rem;
-  }
+@media screen and (max-width: 1280px) {
 
   .NavbarItems {
     position: relative;
@@ -136,7 +132,8 @@ Silver: #a7a9ac*/
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(25%, 50%);
+    /*transform: translate(25%, 50%);*/
+    width: 10rem;
   }
 
   .menu-icon {
@@ -147,11 +144,6 @@ Silver: #a7a9ac*/
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-  }
-
-  .fa-times {
-    color: #fff;
-    font-size: 2rem;
   }
 
   .nav-links-mobile {
@@ -173,5 +165,9 @@ Silver: #a7a9ac*/
     background: #fff;
     color: #242424;
     transition: 250ms;
+  }
+
+  .nav-btns {
+    display: none;
   }
 }

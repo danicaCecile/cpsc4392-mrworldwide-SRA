@@ -12,10 +12,6 @@ function Footer() {
             <h2>About Us</h2>
             <Link to='/sign-up'>How it works</Link>
           </div>
-          <div class='footer-link-items'>
-            <h2>Contact Us</h2>
-            <Link to='/'>Contact</Link>
-          </div>
         </div>
       </div>
       <section class='social-media'>
