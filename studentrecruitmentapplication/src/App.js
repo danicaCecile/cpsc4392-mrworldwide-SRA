@@ -3,10 +3,12 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './components/pages/Home';
 import logIn from './components/pages/logIn';
-import createAccount from './components/pages/createAccount';
+import Register from './components/pages/Register';
 import Dashboard from './components/pages/Dashboard';
+import Footer from './components/Footer';
 
 function App() {
+
   return (
     <>
     <Router>
@@ -14,9 +16,10 @@ function App() {
       <Switch>
       <Route exact path = '/' component = {Home} />
       <Route exact path = '/logIn' component = {logIn} />
-      <Route exact path = '/createAccount' component = {createAccount} />
+      <Route exact path = '/Register' component = {Register} />
       <Route exact path = '/Dashboard' component = {Dashboard} />
       </Switch>
+      <Footer />
     </Router>
     </>
   );

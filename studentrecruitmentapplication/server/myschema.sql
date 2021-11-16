@@ -54,3 +54,5 @@ CREATE TABLE callSheets(
     admission_type VARCHAR(100) NOT NULL,
     student_type VARCHAR(100) NOT NULL
 );
+
+SELECT * FROM users;

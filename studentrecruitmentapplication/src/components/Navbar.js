@@ -53,7 +53,7 @@ const [click, setClick] = useState(false);
                     </li> 
                 </ul>
                 <div className='nav-btns'>
-                {button && <Button className='btns' buttonStyle='btn--outline' linkTo='/createAccount'>Create account</Button>}
+                {button && <Button className='btns' buttonStyle='btn--outline' linkTo='/Register'>Create account</Button>}
                 {button && <Button className='btns' buttonStyle='btn--outline' linkTo='/logIn'>Log in</Button>}
                 </div>
             </div>
