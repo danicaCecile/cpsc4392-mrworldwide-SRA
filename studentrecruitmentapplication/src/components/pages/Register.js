@@ -15,6 +15,8 @@ export default function Register() {
     Axios.post("http://localhost:3001/register", {
       username: usernameReg,
       password: passwordReg,
+      email: emailReg,
+      access: accessReg
     }).then((response) => {
       console.log(response);
     });

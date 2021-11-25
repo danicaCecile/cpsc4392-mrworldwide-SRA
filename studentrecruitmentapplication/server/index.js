@@ -31,7 +31,7 @@ app.post("/register", (req, res) => {
 
     db.query(
         "INSERT INTO users (username, pass, email, access) VALUES (?,?,?,?)",
-        [username, password,"hello","whatsup"],
+        [username, password,email,access],
         (err, result) => {
           console.log(err);
         }
@@ -41,14 +41,3 @@ app.post("/register", (req, res) => {
 app.listen(3001, () => {
     console.log("running server");
   });
-
-//Test to see date to make sure there is SQL connection to app
-
-/*var q = 'SELECT CURTIME() as time, CURDATE() as date, NOW() as now';
-
-connection.query(q, function(error, results, fields){
-    if(error) throw error;
-    console.log(results[0].time);
-}); 
-//Need this to close database connection
-connection.end();*/
