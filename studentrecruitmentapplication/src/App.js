@@ -10,18 +10,18 @@ import Footer from './components/Footer';
 function App() {
 
   return (
-    <>
+    <div className ="App">
     <Router>
       <Navbar />
       <Switch>
-      <Route exact path = '/' component = {Home} />
-      <Route exact path = '/logIn' component = {logIn} />
-      <Route exact path = '/Register' component = {Register} />
-      <Route exact path = '/Dashboard' component = {Dashboard} />
+      <Route path = "/" exact render={(props) => <Home />}/>
+      <Route path = "/logIn" exact render={(props) => <logIn />}/>
+      <Route path = "/register" exact render={(props) => <Register />}/>
+      <Route path = "/dashboard" exact render={(props) => <Dashboard />}/>
       </Switch>
       <Footer />
     </Router>
-    </>
+    </div>
   );
 }
 

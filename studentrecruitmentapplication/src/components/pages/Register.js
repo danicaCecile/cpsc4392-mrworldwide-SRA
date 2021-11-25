@@ -6,12 +6,19 @@ export default function Register() {
 
   const [usernameReg, setUsernameReg] = useState("")
   const [passwordReg, setPasswordReg] = useState("")
+  const [emailReg, setEmailReg] = useState("")
+  const [accessReg, setAccessReg] = useState("")
+
+  Axios.defaults.withCredentials = true;
 
   const register = () => {
-    Axios.post('http://localhost:3001/register', {
-    username: usernameReg, password: passwordReg,}).then((response) => 
-    { console.log(response); });
-  }
+    Axios.post("http://localhost:3001/register", {
+      username: usernameReg,
+      password: passwordReg,
+    }).then((response) => {
+      console.log(response);
+    });
+  };
 
   return(
     <div className="login-wrapper">
@@ -19,18 +26,34 @@ export default function Register() {
       <form>
         <label>
           <p>Username</p>
-          <input type="text" onChange={(e) => {
-            setUsernameReg(e.target.value);
+          <input type="text"
+          onChange={(e) => {
+            setUsernameReg(e.target.value)
           }}/>
         </label>
         <label>
           <p>Password</p>
-          <input type="password" onChange={(e) => {
-            setPasswordReg(e.target.value);
+          <input  type="text"
+          onChange={(e) => {
+            setPasswordReg(e.target.value)
+          }}/>
+        </label>
+        <label>
+          <p>Email</p>
+          <input  type="text"
+          onChange={(e) => {
+            setEmailReg(e.target.value)
+          }}/>
+        </label>
+        <label>
+          <p>Access Level</p>
+          <input  type="text"
+          onChange={(e) => {
+            setAccessReg(e.target.value)
           }}/>
         </label>
         <div>
-          <button type="submit" onClick={register}>Submit</button>
+          <button type="submit" onClick={ register }>Submit</button>
         </div>
       </form>
     </div>

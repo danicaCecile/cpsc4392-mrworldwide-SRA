@@ -24,7 +24,7 @@ const [click, setClick] = useState(false);
 
   window.addEventListener('resize', showButton);
 
-    
+    //<i className={click ? 'fas fa-times' : 'fas fa-bars'} />
     return (
         <>
         <nav className='navbar'>
@@ -33,7 +33,7 @@ const [click, setClick] = useState(false);
                     UA Little Rock
                 </Link>
                 <div className='menu-icon' onClick={handleClick}>
-                    <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+                <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                    <li className='nav-item'>
@@ -53,7 +53,7 @@ const [click, setClick] = useState(false);
                     </li> 
                 </ul>
                 <div className='nav-btns'>
-                {button && <Button className='btns' buttonStyle='btn--outline' linkTo='/Register'>Create account</Button>}
+                {button && <Button className='btns' buttonStyle='btn--outline' linkTo='/register'>Create account</Button>}
                 {button && <Button className='btns' buttonStyle='btn--outline' linkTo='/logIn'>Log in</Button>}
                 </div>
             </div>
