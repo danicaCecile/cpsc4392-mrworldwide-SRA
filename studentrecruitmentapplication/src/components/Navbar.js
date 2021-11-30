@@ -23,8 +23,6 @@ const [click, setClick] = useState(false);
   }, []);
 
   window.addEventListener('resize', showButton);
-
-    //<i className={click ? 'fas fa-times' : 'fas fa-bars'} />
     return (
         <>
         <nav className='navbar'>
@@ -42,7 +40,7 @@ const [click, setClick] = useState(false);
                        </Link>
                     </li> 
                     <li className='nav-item'>
-                    <Link to='/create-account' className='nav-links-mobile' onClick={closeMobileMenu}>
+                    <Link to='/register' className='nav-links-mobile' onClick={closeMobileMenu}>
                            Create Account
                        </Link>
                     </li>

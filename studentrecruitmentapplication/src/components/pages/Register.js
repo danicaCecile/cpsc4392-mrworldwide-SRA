@@ -9,6 +9,9 @@ export default function Register() {
   const [emailReg, setEmailReg] = useState("")
   const [accessReg, setAccessReg] = useState("")
 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   Axios.defaults.withCredentials = true;
 
   const register = () => {
@@ -17,6 +20,15 @@ export default function Register() {
       password: passwordReg,
       email: emailReg,
       access: accessReg
+    }).then((response) => {
+      console.log(response);
+    });
+  };
+
+  const login = () => {
+    Axios.post("http://localhost:3001/login", {
+      username: username,
+      password: password,
     }).then((response) => {
       console.log(response);
     });
@@ -56,6 +68,27 @@ export default function Register() {
         </label>
         <div>
           <button type="submit" onClick={ register }>Submit</button>
+        </div>
+      </form>
+
+      <h1>Log in</h1>
+      <form>
+        <label>
+          <p>Username</p>
+          <input type="text"
+          onChange={(e) => {
+            setUsername(e.target.value)
+          }}/>
+        </label>
+        <label>
+          <p>Password</p>
+          <input  type="text"
+          onChange={(e) => {
+            setPassword(e.target.value)
+          }}/>
+        </label>
+        <div>
+          <button type="submit" onClick={ login }>Submit</button>
         </div>
       </form>
     </div>
