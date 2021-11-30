@@ -54,7 +54,7 @@ app.post("/register", (req, res) => {
 
     db.query(
       "INSERT INTO users (username, pass, email, access) VALUES (?,?,?,?)",
-      [username, hash ,email,access],
+      [username, hash , email , access],
       (err, result) => {
         console.log(err);
       }
@@ -83,11 +83,11 @@ app.post("/login", (req, res) => {
       }
 
       if (result.length > 0) {
-        bcrypt.compare(password, result[0].password, (error, response) => {
+        bcrypt.compare(password, result[0].pass, (error, response) => {
           if (response) {
             req.session.user = result;
             console.log(req.session.user);
-            res.send(result);
+            res.send({message:"Login successful!"});
           } else {
             res.send({ message: "Wrong username/password combination!" });
           }
