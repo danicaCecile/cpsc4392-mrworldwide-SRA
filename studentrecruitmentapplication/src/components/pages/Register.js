@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Axios from 'axios'
 import './Register.css';
 
@@ -12,6 +12,8 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const [loginStatus, setLoginStatus] = useState("");
+
   Axios.defaults.withCredentials = true;
 
   const register = () => {
@@ -19,7 +21,7 @@ export default function Register() {
       username: usernameReg,
       password: passwordReg,
       email: emailReg,
-      access: accessReg
+      access: accessReg,
     }).then((response) => {
       console.log(response);
     });
@@ -30,9 +32,21 @@ export default function Register() {
       username: username,
       password: password,
     }).then((response) => {
-      console.log(response);
+      if (response.data.message) {
+        setLoginStatus(response.data.message);
+      } else {
+        setLoginStatus(response.data[0].username);
+      }
     });
   };
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/login").then((response) => {
+      if (response.data.loggedIn == true) {
+        setLoginStatus(response.data.user[0].username);
+      }
+    });
+  }, []);
 
   return(
     <div className="login-wrapper">
@@ -91,6 +105,8 @@ export default function Register() {
           <button type="submit" onClick={ login }>Submit</button>
         </div>
       </form>
+
+      <h1>{loginStatus}</h1>
     </div>
   )
 }
