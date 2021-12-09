@@ -41,18 +41,12 @@ const [click, setClick] = useState(false);
                     </li> 
                     <li className='nav-item'>
                     <Link to='/register' className='nav-links-mobile' onClick={closeMobileMenu}>
-                           Create Account
+                           Register/Login
                        </Link>
                     </li>
-                    <li className='nav-item'>
-                    <Link to='/log-in' className='nav-links-mobile' onClick={closeMobileMenu}>
-                           Log in
-                    </Link>
-                    </li> 
                 </ul>
                 <div className='nav-btns'>
-                {button && <Button className='btns' buttonStyle='btn--outline' linkTo='/register'>Create account</Button>}
-                {button && <Button className='btns' buttonStyle='btn--outline' linkTo='/logIn'>Log in</Button>}
+                {button && <Button className='btns' buttonStyle='btn--outline' linkTo='/register'>Register/Login</Button>}
                 </div>
             </div>
         </nav>

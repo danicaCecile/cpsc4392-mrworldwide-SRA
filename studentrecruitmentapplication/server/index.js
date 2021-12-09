@@ -87,7 +87,7 @@ app.post("/login", (req, res) => {
           if (response) {
             req.session.user = result;
             console.log(req.session.user);
-            res.send({message:"Login successful!"});
+            res.send(req.session.user.username);
           } else {
             res.send({ message: "Wrong username/password combination!" });
           }

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios'
 import './Register.css';
+import Footer from '../Footer';
+import Navbar from '../Navbar';
+import { useHistory } from "react-router-dom";
 
 export default function Register() {
 
@@ -12,8 +15,9 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const [loginStatus, setLoginStatus] = useState("");
+  const [loginStatus, setLoginStatus] = useState(false);
 
+  const history = useHistory();
   Axios.defaults.withCredentials = true;
 
   const register = () => {
@@ -33,22 +37,16 @@ export default function Register() {
       password: password,
     }).then((response) => {
       if (response.data.message) {
-        setLoginStatus(response.data.message);
+        setLoginStatus(false);
       } else {
-        setLoginStatus(response.data[0].username);
+        setLoginStatus(true);
       }
     });
   };
 
-  useEffect(() => {
-    Axios.get("http://localhost:3001/login").then((response) => {
-      if (response.data.loggedIn == true) {
-        setLoginStatus(response.data.user[0].username);
-      }
-    });
-  }, []);
-
   return(
+    <>
+    <Navbar />
     <div className="login-wrapper">
       <h1>Create an account!</h1>
       <form>
@@ -75,6 +73,7 @@ export default function Register() {
         </label>
         <label>
           <p>Access Level</p>
+          <p>Options: admin, root, caller</p>
           <input  type="text"
           onChange={(e) => {
             setAccessReg(e.target.value)
@@ -102,11 +101,15 @@ export default function Register() {
           }}/>
         </label>
         <div>
-          <button type="submit" onClick={ login }>Submit</button>
+          <button type='button' onClick={ login }>Submit</button>
         </div>
       </form>
 
       <h1>{loginStatus}</h1>
+
     </div>
+    <Footer />
+    </>
+    /*() => history.push('/dashboard')*/
   )
 }

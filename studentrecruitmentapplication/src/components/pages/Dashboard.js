@@ -1,52 +1,34 @@
-import React from 'react';
+import './dashboard.css';
+import React, { useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import Axios from 'axios'
 
-import {Navigation} from 'react-minimal-side-navigation';
-import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
+export default function Dashboard() {
+  Axios.defaults.withCredentials = true;
+  const [authorize, setAuthorize] = useState("false");
 
-function Dashboard() {
+  useEffect(() => {
+    Axios.get("http://localhost:3001/login").then((response) => {
+      if (response.data.loggedIn == true) {
+        setAuthorize("true");
+      }
+    });
+  }, []);
+
+  /*if(!authorize) {
+    return <Redirect to = '/register' />
+  }*/
+
     return (
       <>
-        <Navigation
-            // you can use your own router's api to get pathname
-            activeItemId="/management/members"
-            onSelect={({itemId}) => {
-              // maybe push to the route
-            }}
-            items={[
-              {
-                title: 'Dashboard',
-                itemId: '/dashboard',
-                // you can use your own custom Icon component as well
-                // icon is optional
-              },
-              {
-                title: 'Management',
-                itemId: '/management',
-                subNav: [
-                  {
-                    title: 'Projects',
-                    itemId: '/management/projects',
-                  },
-                  {
-                    title: 'Members',
-                    itemId: '/management/members',
-                  },
-                ],
-              },
-              {
-                title: 'Another Item',
-                itemId: '/another',
-                subNav: [
-                  {
-                    title: 'Teams',
-                    itemId: '/management/teams',
-                  },
-                ],
-              },
-            ]}
-          />
+      <div className="sidenav">
+      <p>{authorize}</p>
+      </div>
+
+      <div className="main">
+        <h2>Sidenav Example</h2>
+        <p>This sidenav is always shown.</p>
+      </div>
       </>
     );
 }
-
-export default Dashboard;
