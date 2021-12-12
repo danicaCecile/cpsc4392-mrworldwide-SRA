@@ -105,8 +105,6 @@ export default function Register() {
         </div>
       </form>
 
-      <h1>{loginStatus}</h1>
-
     </div>
     <Footer />
     </>
