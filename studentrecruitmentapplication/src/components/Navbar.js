@@ -3,6 +3,8 @@ import './Navbar.css';
 
 import { Link } from 'react-router-dom';
 import { Button } from './Button.js';
+import Axios from 'axios';
+
 function Navbar() {
 const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -23,6 +25,22 @@ const [click, setClick] = useState(false);
   }, []);
 
   window.addEventListener('resize', showButton);
+
+  Axios.defaults.withCredentials = true;
+
+    /*useEffect(() => {
+      Axios.get("http://localhost:3001/login").then((response) => {
+        if(response.data.loggedIn == false) {
+          history.push('/');
+        }
+      })
+    }, [history]);*/
+
+    const logout = () => {
+      Axios.post("http://localhost:3001/logout", {
+      })
+    };
+
     return (
         <>
         <nav className='navbar'>
@@ -40,14 +58,16 @@ const [click, setClick] = useState(false);
                        </Link>
                     </li> 
                     <li className='nav-item'>
-                    <Link to='/register' className='nav-links-mobile' onClick={closeMobileMenu}>
+                    <Link to='/register' className='nav-links' onClick={closeMobileMenu}>
                            Register/Login
                        </Link>
                     </li>
+                    <li className='nav-item'>
+                    <Link to='/register' className='nav-links' onClick={logout}>
+                           Logout
+                    </Link>
+                    </li>
                 </ul>
-                <div className='nav-btns'>
-                {button && <Button className='btns' buttonStyle='btn--outline' linkTo='/register'>Register/Login</Button>}
-                </div>
             </div>
         </nav>
         </>

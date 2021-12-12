@@ -73,6 +73,7 @@ app.get("/login", (req, res) => {
 app.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
+  var loggedIn = req.body.loggedIn;
 
   db.query(
     "SELECT * FROM users WHERE username = ?;",
@@ -81,13 +82,16 @@ app.post("/login", (req, res) => {
       if (err) {
         res.send({ err: err });
       }
-
       if (result.length > 0) {
         bcrypt.compare(password, result[0].pass, (error, response) => {
           if (response) {
             req.session.user = result;
             console.log(req.session.user);
             res.send(req.session.user.username);
+            /*db.query(
+              "UPDATE users SET loggedIn = 'true' WHERE username = ?;",
+              username
+            )*/
           } else {
             res.send({ message: "Wrong username/password combination!" });
           }
