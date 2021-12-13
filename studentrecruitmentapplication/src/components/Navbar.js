@@ -26,21 +26,6 @@ const [click, setClick] = useState(false);
 
   window.addEventListener('resize', showButton);
 
-  Axios.defaults.withCredentials = true;
-
-    /*useEffect(() => {
-      Axios.get("http://localhost:3001/login").then((response) => {
-        if(response.data.loggedIn == false) {
-          history.push('/');
-        }
-      })
-    }, [history]);*/
-
-    const logout = () => {
-      Axios.post("http://localhost:3001/logout", {
-      })
-    };
-
     return (
         <>
         <nav className='navbar'>
@@ -63,8 +48,8 @@ const [click, setClick] = useState(false);
                        </Link>
                     </li>
                     <li className='nav-item'>
-                    <Link to='/register' className='nav-links' onClick={logout}>
-                           Logout
+                    <Link to='/dashboard' className='nav-links' onClick={closeMobileMenu}>
+                           Dashboard
                     </Link>
                     </li>
                 </ul>

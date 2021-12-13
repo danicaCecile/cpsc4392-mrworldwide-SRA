@@ -88,10 +88,6 @@ app.post("/login", (req, res) => {
             req.session.user = result;
             console.log(req.session.user);
             res.send(req.session.user.username);
-            /*db.query(
-              "UPDATE users SET loggedIn = 'true' WHERE username = ?;",
-              username
-            )*/
           } else {
             res.send({ message: "Wrong username/password combination!" });
           }

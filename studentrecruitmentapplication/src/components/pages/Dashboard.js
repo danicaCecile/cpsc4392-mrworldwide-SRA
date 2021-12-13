@@ -24,12 +24,12 @@ export default function Dashboard() {
       })()}></div>
 
       <div className="sidenav">
-      <h1>Button</h1>
+      <a href="#">Import Data</a>
+      <a href="#">Campaign</a>
       </div>
 
       <div className="main">
-        <h2>Sidenav Example</h2>
-        <h1>hi</h1>
+        <h2>Dashboard for Admin</h2>
       </div>
       </>
     );
